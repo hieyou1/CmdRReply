@@ -7,13 +7,13 @@
             "github_username": "hieyou1"
         }],
         "version": "0.0.1",
-        "description": "Command + R means reply, not reload! That's about it",
-        "github": "",
-        "github_raw": ""
+        "description": "Command + R means reply, not reload!",
+        "github": "https://github.com/hieyou1/cmdrreply",
+        "github_raw": "https://raw.githubusercontent.com/hieyou1/cmdrreply/master/release/CmdRReply.plugin.js"
     },
     "changelog": [{
-        "title": "stuff changed",
-        "items": ["boog fixers"]
+        "title": "V0.0.1",
+        "items": ["N/A"]
     }],
     "main": "index.js"
 }

@@ -1,0 +1,19 @@
+{
+    "info": {
+        "name": "CmdRReply",
+        "authors": [{
+            "name": "hieyou1",
+            "discord_id": "288299360557465600",
+            "github_username": "hieyou1"
+        }],
+        "version": "0.0.1",
+        "description": "Command + R means reply, not reload! That's about it",
+        "github": "",
+        "github_raw": ""
+    },
+    "changelog": [{
+        "title": "stuff changed",
+        "items": ["boog fixers"]
+    }],
+    "main": "index.js"
+}

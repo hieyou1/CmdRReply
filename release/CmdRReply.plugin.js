@@ -4,8 +4,8 @@
  * @authorLink undefined
  * @donate undefined
  * @patreon undefined
- * @website 
- * @source 
+ * @website https://github.com/hieyou1/cmdrreply
+ * @source https://raw.githubusercontent.com/hieyou1/cmdrreply/master/release/CmdRReply.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
@@ -32,7 +32,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {"info":{"name":"CmdRReply","authors":[{"name":"hieyou1","discord_id":"288299360557465600","github_username":"hieyou1"}],"version":"0.0.1","description":"Command + R means reply, not reload!","github":"","github_raw":""},"changelog":[{"title":"stuff changed","items":["boog fixers"]}],"main":"index.js"};
+    const config = {"info":{"name":"CmdRReply","authors":[{"name":"hieyou1","discord_id":"288299360557465600","github_username":"hieyou1"}],"version":"0.0.1","description":"Command + R means reply, not reload!","github":"https://github.com/hieyou1/cmdrreply","github_raw":"https://raw.githubusercontent.com/hieyou1/cmdrreply/master/release/CmdRReply.plugin.js"},"changelog":[{"title":"V0.0.1","items":["N/A"]}],"main":"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -77,7 +77,10 @@ module.exports = (() => {
 
             // Get & jump to latest message
             let msg = channel.messages[channel.messages.length - 1];
-            msg.jumpTo();
+            // msg.jumpTo();
+
+            // Can't quick reply to self
+            if (msg.author.id == Zere.DiscordAPI.currentUser.id) return BdApi.showToast("Can't quick reply to self");
 
             // Get button container. Fail gracefully if not found.
 
@@ -92,7 +95,7 @@ module.exports = (() => {
                     break;
                 }
             }
-            if (buttonContainer == false) return BdApi.showToast("Invalid message or problem accessing reply functionality");
+            if (buttonContainer == false) return BdApi.showToast("Invalid message or problem accessing reply functionality [Code 1]");
 
             // The actual button container is inside the container for the wrapper for the button container. Thanks for the headache, Discord.
             buttonContainer = buttonContainer.children[0].children[0];
@@ -106,7 +109,7 @@ module.exports = (() => {
                     break;
                 }
             }
-            if (replyFound == false) return BdApi.showToast("Invalid message or problem accessing reply functionality");
+            if (replyFound == false) return BdApi.showToast("Invalid message or problem accessing reply functionality [Code 2]");
         }
     };
 

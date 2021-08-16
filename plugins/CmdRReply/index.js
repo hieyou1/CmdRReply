@@ -20,7 +20,9 @@ module.exports = (Plugin, Zere) => {
 
             // Get & jump to latest message
             let msg = channel.messages[channel.messages.length - 1];
-            msg.jumpTo();
+
+            // Can't quick reply to self
+            if (msg.author.id == Zere.DiscordAPI.currentUser.id) return BdApi.showToast("Can't quick reply to self");
 
             // Get button container. Fail gracefully if not found.
 
@@ -35,7 +37,7 @@ module.exports = (Plugin, Zere) => {
                     break;
                 }
             }
-            if (buttonContainer == false) return BdApi.showToast("Invalid message or problem accessing reply functionality");
+            if (buttonContainer == false) return BdApi.showToast("Invalid message or problem accessing reply functionality [Code 1]");
 
             // The actual button container is inside the container for the wrapper for the button container. Thanks for the headache, Discord.
             buttonContainer = buttonContainer.children[0].children[0];
@@ -49,7 +51,7 @@ module.exports = (Plugin, Zere) => {
                     break;
                 }
             }
-            if (replyFound == false) return BdApi.showToast("Invalid message or problem accessing reply functionality");
+            if (replyFound == false) return BdApi.showToast("Invalid message or problem accessing reply functionality [Code 2]");
         }
     };
 
